@@ -1,0 +1,895 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* 星空の背景のスタイル */
+.stars {
+    position: relative;
+    width: 100%; /* 星空の横幅 */
+    height: 100%; /* 星空の縦幅 */
+    background-size:cover;
+}
+
+/* 星のスタイル */
+.star {
+    z-index: -20;
+    position: absolute;
+    display: block;
+    background-color: white; /* 星の色 */
+    border-radius: 50%;
+    box-shadow: 0 0 4px 2px rgba(#fcf6e0, 0.5); /* 星の影 */
+    opacity: 0;
+    animation: twinkle 5s infinite;
+}
+
+/* 星がキラキラ光るアニメーション */
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    /*background-color: #ffffde;*/ /*背景色*/
+    background-image: linear-gradient(0deg, #ffffdc, #e0fffe); /* 星空の背景色 */
+}
+.kantanhome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Homeボタン */
+/*記事新規作成ボタン*/
+.btnchangeradius {
+    /*ボタンの形状*/
+    display: inline-block;
+    background: #13293D;
+    color: #fff;
+    padding: 10px 20px;
+    border: 5px double white;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: .3s ease-out;
+}
+    .btnchangeradius a {
+        text-decoration: none;
+        color: white;
+    }
+    /*角丸に変わる*/
+    /*hoverした際の角丸のアニメーション*/
+    .btnchangeradius:hover {
+        background: #A3E7FC;
+        border-radius: 20px;
+    }
+
+/*編集ボタン*/
+.btnchangeradius2 {
+    /*ボタンの形状*/
+    display: inline-block;
+    background: #b3cece;
+    color: white;
+    padding: 8px 15px;
+    margin-right:5px;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: .2s ease-out;
+}
+
+    .btnchangeradius2 a {
+        text-decoration: none;
+        color: white;
+    }
+    /*角丸に変わる*/
+    /*hoverした際の角丸のアニメーション*/
+    .btnchangeradius2:hover {
+        background: #659483;
+        color: white;
+        border-radius: 20px;
+    }
+.btnchangeradius3 {
+    /*ボタンの形状*/
+    display: inline-block;
+    background: #d4b8bc;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: .2s ease-out;
+}
+    .btnchangeradius3 a {
+        text-decoration: none;
+        color: white;
+    }
+    /*角丸に変わる*/
+    /*hoverした際の角丸のアニメーション*/
+    .btnchangeradius3:hover {
+        background: #b18ca0;
+        border-radius: 20px;
+    }
+
+.category {
+    display: flex;
+    background: linear-gradient(to left, transparent 60%, #fed6e3 100%) right;
+    background-size: 300% 100%;
+    transition: 0.5s ease-out;
+    color: black;
+    text-decoration: none;
+}
+.category:hover {
+    background-position: left;
+}
+
+/*改変部分ここから*/
+/*一覧ページ*/
+.itirans {
+    width: 100%;
+    display: flex;
+    background-color: #edf6f1;
+    margin: 1%;
+    padding: 1%;
+    font-size: 1.5rem;
+}
+.itirans2 {
+    width: 100%;
+    display: flex;
+    /*表示のボックス*/
+    /*background-color: #e8f3f5;*/
+    background-color: #edf6f1;
+}
+.itirans2 div {
+    width: 25%;
+    margin-right: 5%;
+}
+/*順番入れ替えボタン*/
+.a-order {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.a-order a {
+    color: black;
+    padding: 3px;
+    border-radius: 2%;
+    background-color: gainsboro;
+    text-decoration: none;
+}
+.a-order .aobd {
+    color: white;
+    padding: 3px;
+    border-radius: 2%;
+    background-color: #006494;
+    text-decoration: none;
+}
+.a-order .aob {
+    color: white;
+    padding: 3px;
+    border-radius: 2%;
+    background-color: #aa4d5f;
+    text-decoration: none;
+}
+
+.a-order :hover {
+    color: white;
+    background-color: #6f4876;
+}
+
+/* コメント一覧 */
+.comment-list-content {
+    min-height: 300px;
+    width: 80%;
+    padding: 2%;
+    margin-left: 10%;
+    background-color: #ffffde;
+    border-radius: 30px;
+    text-align: left;
+    box-shadow: 0 5px 10px 0 #006494b7;
+}
+.comment-list-title {
+    font-family: "Yu Gothic Medium", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: darkgreen;
+}
+.comment-list-time {
+    font-family: "Yu Gothic Medium", sans-serif;
+    font-size: 14px;
+    color: black;
+}
+.comment-list-text {
+    font-family: "Yu Gothic Medium", sans-serif;
+    font-size: 16px;
+    text-indent: 0.5em;
+    margin-bottom: 25px;
+}
+
+/*本文へのリンク*/
+.comment-list-text {
+    font-family: "Yu Gothic Medium", sans-serif;
+    font-size: 16px;
+    /* text-indent: 0.5em;*/
+    padding-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+/*本文へのリンク*/
+.asp-title a {
+    text-decoration: none;
+    color: black;
+}
+
+/*一覧の中のボタン*/
+.itiran-button { 
+    width: 15%;
+}
+.itiran-button a {
+    font-size: 1.5rem;
+    color:black;
+    border-radius: 2px;
+    padding: 5%;
+    margin-right:10px;
+    text-decoration: none;/*下線を消す*/
+   
+}
+
+/*ページネーション*/
+.pagenation {
+    text-align: center;
+}
+
+
+/*コメント新規作成ボタン*/
+.a-create-comment {
+    text-align: right;
+}
+
+.a-create-comment a {
+    padding: 10px;
+    color: black;
+    border-radius: 1%;
+    background-color: #ceb59d;
+    text-decoration: none;
+}
+
+.a-create-comment :hover {
+    color: white;
+    background-color: gray;
+}
+
+.listlayout {
+    width: 90%;
+    margin: auto;
+}
+/*こぴぺ　テーブル*/
+/*記事一覧テーブル全体デザイン*/
+.table_design09 {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    /*枠線*/
+    border: double #132932;
+    border-radius: 30px;
+}
+/*テーブル行全体*/
+.table_design09 tr {
+    background-color: #f8fbe8;
+}
+
+/*  .table_design09 tr:nth-child(even) {
+        background-color: #fff;
+    }*/
+
+    .table_design09 th, .table_design09 td {
+        padding: 1em;
+        border-bottom: 1px solid #006494;
+    }
+
+/*テーブルヘッダー*/
+.table_design09 thead th {
+    background-color: #132932;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+    .table_design09 thead th:first-child {
+        border-top-left-radius: 20px;
+        /*左上の角丸*/
+    }
+    .table_design09 thead th:last-child {
+        border-top-right-radius: 20px;
+        /*右上の角丸*/
+    }
+    .table_design09 tbody td {
+        font-size: 1.5rem;
+    }
+    .table_design09 tbody td a {
+        color: black;
+        text-decoration: none;
+    }
+    /*テーブルボディの最後の行のセル*/
+    .table_design09 tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+    /*左下の角丸*/ 
+    }
+    .table_design09 tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 20px;
+        /*右下の角丸*/
+    }
+
+
+/*カレンダー*/
+/* カレンダーのスタイル */
+.calendar-header__title {
+    font-family: Arial, sans-serif;
+    font-size: 35px;
+}
+
+
+.tableborder {
+    font-family: Arial, sans-serif;
+    outline: 2px solid gray;
+    border-collapse: collapse;
+    width: 240px;
+    background-color: #fff;
+}
+
+.tableborder td {
+    width: 14.55%
+}
+
+.tableborder th {
+    color: #000;
+}
+
+.thtdborder {
+    border: 1px solid gray;
+    padding: 4px;
+    text-align: center;
+}
+    .calendar th {
+        background-color: #f2f2f2;
+    }
+
+
+/*日曜日*/
+.tableborder td:first-child {
+    color: red;
+}
+/*土曜日*/
+.tableborder td:last-child {
+    color: blue;
+}
+/*前後月の日付*/
+.tableborder td.disabled {
+    color: gray;
+}
+/*本日*/
+.tableborder.today {
+    background-color: #D65E72;
+    color: #fff;
+}
+
+.calendar-header-button {
+    position: relative;
+    cursor: pointer;
+    background: #006494;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0.5rem 2rem;
+    margin: 1rem 0;
+    border: none;
+}
+
+.calendar-header-button:hover {
+    background-color: #2a2c70;
+}
+
+#prev {
+    float: left;
+}
+
+#next {
+    float: right;
+}
+
+/*閲覧右天気API*/
+.table_design11 {
+    margin-bottom: 20%;
+    width: 100%;
+    border-radius: 3%;
+    overflow: hidden; /* 角丸を子要素に適用 /
+}
+    .table_design11 tr:first-child th:first-child {
+        border-top-left-radius: 10px; / 左上の角丸 /
+    }
+
+    .table_design11 tr:first-child th:last-child {
+        border-top-right-radius: 10px; / 右上の角丸 /
+    }
+
+    .table_design11 tr:last-child td:first-child {
+        border-bottom-left-radius: 10px; / 左下の角丸 /
+    }
+
+    .table_design11 tr:last-child td:last-child {
+        border-bottom-right-radius: 10px; / 右下の角丸 */
+}
+
+.table_design11 tr {
+    border-bottom: solid 2px white;
+}
+
+    .table_design11 tr:last-child {
+        border-bottom: none;
+    }
+
+.table_design11 th {
+    position: relative;
+    text-align: left;
+    width: 40%;
+    background-color: #006494;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.table_design11 td {
+    text-align: left;
+    width: 100%;
+    text-align: center;
+    background-color: ghostwhite;
+    padding: 10px 0;
+}
+
+/*記事作成*/
+/*全体*/
+.tcreate {
+    /*text-align: center;*/
+    text-align: left;
+    padding-left:20%;
+    width: 100%;
+}
+    .tcreate p {
+        margin: 0%;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    /*pの下*/
+    .tcreate p + input {
+        height: 35px;
+        border: 2px solid gray; /*フォームの枠線ココ*/
+        border-radius: 3px;
+    }
+    .tcreate p + input:focus {
+        border: 2px solid #ad7262;
+        outline: none; /* フォーカス時の枠線を削除 */
+    }
+    .tcreate textarea {
+        height: 200px;
+        border: 2px solid gray;/*フォームの枠線ココ*/
+        border-radius: 3px;
+    }
+    textarea:focus {
+        border: 2px solid #ad7262;
+        outline: none; 
+    }
+    /*div直下*/
+    .tcreate div>textarea,input {
+        width: 60%;
+    }
+    /*spanの中にある*/
+    .tcreate span input {
+        width: 10%;
+    }
+    .tcreate span input:hover {
+        color: white;
+        background-color: #ad7262;
+    }
+
+    /*検証*/
+    .tcreate input+span {
+        color: red;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 1%;
+    }
+    .tcreate textarea+span {
+        color: red;
+        margin-bottom: 2%;
+        font-weight: bold;
+        display: block;
+    }
+
+    
+    /*日付のinputは上記で上手く反映出来ないので直接指定*/
+    .tcreate-date {
+        font-size: 1rem;
+        width: 60%;
+        height: 35px;
+        border: 2px solid gray;
+        border-radius: 3px;
+
+    }
+    .tcreate-date:focus {
+        border: 2px solid #ad7262;
+        outline: none;
+    }
+    
+
+
+/*使用見送りのCSS*/
+.input-style2 {
+    text-align: center;
+    font-size: 20px;
+    margin: 1%;
+    background: rgb(211, 175, 175);
+    border: none;
+    border-radius: 3%;
+}
+
+.input-style3 {
+    text-align: center;
+    font-size: 20px;
+    margin: 1%;
+    background: rgb(186, 203, 223);
+    border: none;
+    border-radius: 3%;
+    text-decoration:none;
+    color:black;
+    padding-block: 2px;
+    padding-inline: 1%;
+}
+.input-style3:hover {
+    color: white;
+    background-color: #4d9bc1;
+}
+
+
+/*カテゴリ、本文、天気・カレンダーの配置*/
+/*全体*/
+.layout {
+    width:90%;
+    margin-bottom: 0px;
+    display: flex;
+   margin: auto;
+}
+/*左側*/
+.hidari {
+    /*height: 20%;*/
+    width: 20%;
+    /*background-color: #eda4a4;*//*←範囲確認用*/
+    float: left;
+    /*5/29修正（川村）*/
+    /*中央寄せを解除して左寄せにする*/
+    text-align: left;
+    /*余白で左右を調整していきます*/
+    padding: 1%;
+}
+/*真ん中*/
+.center {
+    justify-content: center;
+    /*align-items: center;*/ /*←悪さしてたのはこいつ。交差軸（縦）方向の揃え位置を指定するプロパティ*/
+    height: auto;
+    width: 60%;
+    padding: 2%;
+    margin-inline: 1%;
+    background-color: #ffffde; /*←範囲確認用*/
+    border-radius: 30px;
+    text-align: left;
+    box-shadow: 0 5px 10px 0 #006494b7;
+}
+    .center h3 dd {
+        text-align: center;
+    }
+/*右*/
+.migi {
+    height: auto;
+    width: 20%;
+    display: flex;
+    flex-flow:column;
+    text-align: center;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*記事削除ページ*/
+.tcreate hr {
+    margin-right: 40%;
+}
+
+/*コメン一覧トページ*/
+.come-itiran {
+    flex-direction:column;
+}
+.come-itiran p {
+    padding-left: 20px;
+}
+
+.come-itiran2 {
+    text-align:right;
+    margin-right: 10%;
+}
+
+.come-itiran2 a {
+    text-decoration: none;
+    color: black;
+}
+    .come-itiran2 a:hover {
+        text-decoration: none;
+        color: black;
+        background-color: #aaf2ee73;
+    }
+
+.balloon {
+    position: relative;
+    margin: 0 10% 0 20%;
+    padding: 15px;
+    background: #fff0c6;
+    border-radius: 30px;
+}
+
+    .balloon:before {
+        content: "";
+        position: absolute;
+        left: -50px;
+        width: 18px;
+        height: 18px;
+        bottom: 70%;
+        background: #fff0c6;
+        border-radius: 50%;
+    }
+
+    .balloon:after {
+        content: "";
+        position: absolute;
+        left: -30px;
+        width: 25px;
+        height: 30px;
+        bottom: 40%;
+        background: #fff0c6;
+        border-radius: 50%;
+    }
+
+    .balloon p {
+        margin: 0;
+        padding: 0;
+        white-space: pre-wrap;
+        display:flex;
+    }
+
+.come-deco {
+    margin-left:10%;
+    margin-bottom: 1%;
+    font-weight:bold;
+    font-size:1.2rem;
+}
+.come-kijideco {
+    margin-left: 10%;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+    .come-kijideco a {
+        text-decoration: none;
+        color: black;
+    }
+    .come-kijideco a:hover {
+        text-decoration: none;
+        color: black;
+        background-color: #aaf2ee73;
+    }
+
+
+/*投稿ボタン*/
+
+
+
+.button {
+    background: #f66a6a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    /*font-size: 1.9em;*/
+    font-size: 20px;
+    /*letter-spacing: .2px;*/
+    /*line-height: 65px;*/
+    text-align: center;
+/*    text-transform: uppercase;
+    user-select: none;*/
+    /*height: 65px;
+    width: 150px;*/
+    /*もとのスタイル*/
+    margin: 1%;
+    padding-block: 2px;
+    padding-inline: 1%;
+}
+
+    .button:hover {
+        background: #f76e6e;
+    }
+
+    .button:active {
+        box-shadow: inset 0px 2px 8px -1px #cc5c5c;
+    }
+
+.fancy-button {
+    margin: auto;
+    position: relative;
+}
+
+.frills, .frills:after, .frills:before {
+    position: absolute;
+    background: #f66a6a;
+    border-radius: 4px;
+    height: 8px;
+}
+
+    .frills:after, .frills:before {
+        content: "";
+        display: block;
+    }
+
+    .frills:before {
+        bottom: 45px;
+    }
+
+    .frills:after {
+        top: 45px;
+    }
+
+.left-frills {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+    .fancy-button.active .left-frills {
+    animation: move-left 0.38s ease-out, width-to-zero 0.38s ease-out;
+}
+
+.left-frills:before, .left-frills:after {
+    left: 15px;
+}
+
+.fancy-button.active .left-frills:before {
+    animation: width-to-zero 0.38s ease-out, move-up 0.38s ease-out;
+}
+
+.fancy-button.active .left-frills:after {
+    animation: width-to-zero 0.38s ease-out, move-down 0.38s ease-out;
+}
+
+.right-frills {
+    position: absolute;
+    left: 164px;
+    top: 31px;
+}
+
+.fancy-button.active .right-frills {
+    animation: move-right 0.38s ease-out, width-to-zero 0.38s ease-out;
+}
+
+.right-frills:before, .right-frills:after {
+    right: 15px;
+}
+
+.fancy-button.active .right-frills:before {
+    animation: width-to-zero 0.38s ease-out, move-up 0.38s ease-out;
+}
+
+.fancy-button.active .right-frills:after {
+    animation: width-to-zero 0.38s ease-out, move-down 0.38s ease-out;
+}
+
+.left-frills:before, .right-frills:after {
+    transform: rotate(34deg);
+}
+
+.left-frills:after, .right-frills:before {
+    transform: rotate(-34deg);
+}
+
+@keyframes move-left {
+    0% {
+        transform: none;
+    }
+
+    65% {
+        transform: translateX(-80px);
+    }
+
+    100% {
+        transform: translateX(-80px);
+    }
+}
+
+@keyframes move-right {
+    0% {
+        transform: none;
+    }
+
+    65% {
+        transform: translateX(80px);
+    }
+
+    100% {
+        transform: translateX(80px);
+    }
+}
+
+@keyframes width-to-zero {
+    0% {
+        width: 38px;
+    }
+    100%
+    {
+        width: 8px;
+    }
+
+}
+
+@keyframes move-up {
+    0% {
+    }
+
+    100% {
+        bottom: 69.75px;
+    }
+}
+
+@keyframes move-down {
+    0% {
+    }
+
+    100% {
+        top: 69.75px;
+    }
+}
+
+.c-bottom {
+    margin-left: 50%;
+    background-color: #b3cece;
+    border-radius: 20px;
+    text-decoration: none;
+    color:black;
+}

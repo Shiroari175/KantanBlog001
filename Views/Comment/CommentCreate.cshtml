@@ -1,0 +1,51 @@
+﻿@model KantanBlog001.Models.Comment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="tcreate">コメント作成</h1>
+
+@* <h4>Comment</h4> *@
+<hr />
+<div class="row">
+    <div class="tcreate">
+        <form asp-action="CommentCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @* <label class="control-label">紐付くブログタイトル</label>
+                 <select asp-for="ArticleId" asp-items="ViewBag.ArticleId"></select> *@
+                <input type="hidden" asp-for="ArticleId"/>
+            </div> 
+            <div class="form-group">
+                <p>名前</p>
+                <input asp-for="UserName" value="名無しさん＠かんたんブログ" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div class="form-group">
+                <p>コメント</p>
+                <textarea asp-for="CommentText" placeholder="コメントを入力してください。" rows="8"></textarea>
+                <span asp-validation-for="CommentText"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <span>
+                    <input type="submit" value="コメント作成" class="input-style2" />
+                </span>
+                <span>
+                    <!--<a asp-controller="Articles" asp-action="UserArticleList" >
+                        記事リストへ戻る
+                    </a>-->
+                    <a href="#" onclick="history.back()" return false; class="input-style3">コメントに戻る</a>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

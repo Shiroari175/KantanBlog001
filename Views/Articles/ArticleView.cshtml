@@ -1,0 +1,104 @@
+﻿@using KantanBlog001.Models
+@using KantanBlog001.ViewModels
+
+@model KantanBlog001.Models.Article
+
+@{
+    ViewData["Title"] = "ArticleView";
+
+    List<CategoryCount>? categoryCount = null;
+    if (ViewData["categoryCount"] != null)
+        categoryCount = (List<CategoryCount>?)ViewData["categoryCount"];
+
+}
+
+<!--本文-->
+<div class="layout clearfix">
+
+    <div class="hidari">
+        <h6><b>カテゴリー一覧</b></h6>
+        <ul>
+            @foreach (var item in categoryCount)
+            {
+                <a href="@Url.Action("UserArticleList", "Articles", new { category = item.Category }) " class="category">
+                    <li>@item.Category (@item.CategoryGroupCount)</li>
+                </a>
+            }
+        </ul>
+    </div>
+
+    <div class="center" id="c-top">
+        <input type="hidden" id="listDate" value="@ViewData["listDate"]" />
+        <dl class="row">
+            <h3>
+                <dd>@Html.DisplayFor(model => model.Title)</dd>
+                <hr style="height:5px; background-color:#000000;" />
+            </h3>
+
+            <pre style="white-space: pre-wrap;">
+                <dd>@Html.DisplayFor(model => model.Text)</dd>
+            </pre>
+
+            <pre>
+                <dt>カテゴリ： @Html.DisplayFor(model => model.Category)</dt>
+            </pre>
+        </dl>
+        <div><a href="#c-top" class="c-bottom">Top</a></div>
+    </div>
+
+    <div class="migi">
+        <table class="table_design11">
+            <tr id="publishingOffice">
+                <th>発表者</th>
+                <td></td>
+            </tr>
+            <!--<tr id="reportDatetime">
+                <th>報告日時</th>
+                <td></td>
+            </tr>-->
+            <tr id="targetArea">
+                <th>対象地域</th>
+                <td></td>
+            </tr>
+            <tr id="today">
+                <th>今日の天気</th>
+                <td></td>
+            </tr>
+            <tr id="tomorrow">
+                <th>明日の天気</th>
+                <td></td>
+            </tr>
+            <tr id="dayAfterTomorrow">
+                <th>明後日の天気</th>
+                <td></td>
+            </tr>
+        </table>
+
+       <!-- xxxx年xx月を表示 -->
+        <h1 id="header"></h1>
+        <!-- ボタンクリックで月移動 -->
+        <!-- <div id="next-prev-button">
+            <button id="prev" onclick="prev()">‹</button>
+            <button id="next" onclick="next()">›</button>
+        </div>
+        -->
+        <!-- カレンダー -->
+        <div id="calendar"></div>
+    </div>
+</div>
+<br />
+<div style="text-align: center;">
+    <a href="@Url.Action("CommentView", "Comment", new { articleId = Model.ArticleId })" class="btnchangeradius">
+        コメント欄へ
+    </a>
+</div>
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
