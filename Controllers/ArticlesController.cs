@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.SqlClient;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
+using AspNetCoreGeneratedDocument;
 
 namespace KantanBlog001.Controllers
 {
@@ -152,6 +153,7 @@ namespace KantanBlog001.Controllers
 
             var article = await _context.Article
                 .FirstOrDefaultAsync(m => m.ArticleId == id);
+
             if (article == null)
             {
                 return NotFound();
@@ -319,9 +321,18 @@ namespace KantanBlog001.Controllers
         public async Task<IActionResult> ArticleView(int? id)
         {
 
+            //IDがNULLの場合、記事カウントを取る
+            int ArticleCount = await _context.Article.CountAsync();
+
+            if (ArticleCount == 0)
+            {
+                //記事が存在しない場合、記事見つかりませんページにリダイレクト
+                return RedirectToAction(nameof(ArticleFirst));
+            }
+
             if (id == null)
             {
-                //IDがNULLの場合、IDのMAX値を取ってくる
+                //ID指定がない場合、IDのMAX値を取ってくる
                 id = await _context.Article.MaxAsync(a => a.ArticleId);
             }
 
@@ -367,6 +378,12 @@ namespace KantanBlog001.Controllers
             }
 
             return View(article);
+        }
+
+        // GET: Articles/ArticleFirst
+        public IActionResult ArticleFirst()
+        {
+            return View();
         }
 
         // GET: Articles/Delete/5

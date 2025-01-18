@@ -1,0 +1,19 @@
+﻿@model KantanBlog001.Models.Article
+
+@{
+    ViewData["Title"] = "表示する記事が見つかりませんでした";
+}
+
+<h3>表示する記事が見つかりませんでした。
+    <a asp-action="ArticleCreate">こちらから</a>
+    記事作成をお願いします。
+</h3>
+
+<hr />
+<div></div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
